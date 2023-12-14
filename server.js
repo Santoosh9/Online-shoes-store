@@ -4,12 +4,14 @@ const bodyParser = require('body-parser');
 const db = require('./database/collection');
 
 const authRoute = require('./routes/authRoute');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 
 // middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 // routes
 

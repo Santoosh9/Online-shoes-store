@@ -54,6 +54,9 @@ authSchema
 //   define methords
 
 authSchema.methods = {
+  authenticate: function (plainText) {
+    return this.encryptedPassword(plainText) === this.hashed_password;
+  },
   encryptedPassword: function (password) {
     if (!password) return '';
     try {
